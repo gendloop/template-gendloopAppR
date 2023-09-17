@@ -5,7 +5,9 @@
                 "Git/Git_Push.bat",
                 "Git/Git_PushDirectly.bat",
                 "Git/Git_Tag.bat",
-                "Git/Git_Delete_Tag.bat"
+                "Git/Git_Delete_Tag.bat",
+                "Common/7z_release/7z_release.bat",
+                "Common/7z_release/7z_release.ps1"
             ],
             "local_dir": ".",
             "user": "gendloop",
