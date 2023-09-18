@@ -13,7 +13,7 @@ if((Test-Path ..\config.txt) -eq $false) {
 
 # 获取项目名称, 版本号
 $content= Get-Content -Raw "..\config.txt"
-$regex = "(?<=PROEJCT_NAME=)\w+(?=`n)"
+$regex = "(?<=PROJECT_NAME=)[\-\[\w\]]+(?=`r`n)"
 $project_name = [regex]::Match($content, $regex).Value
 [string[]]$version_num = @(
     'MAJOR',
@@ -22,13 +22,13 @@ $project_name = [regex]::Match($content, $regex).Value
 )
 [int32[]]$version = 1, 0, 0
 for($i = 0; $i -lt $version_num.Count; $i++) {
-    $regex = "(?<=${project_name}_VERSION_$($version_num[$i])=)\d+(?=`n)"
+    $regex = "(?<=${project_name}_VERSION_$($version_num[$i])=)\d+(?=`r`n)"
     $version[$i] = [regex]::Match($content, $regex).Value
 }
 echo $version
 
 # package
-7z a $env:userprofile\desktop\7z-$($version[0]).$($version[1]).$($version[2])-win64.7z $folder\* -aoa
+7z a $env:userprofile\desktop\${project_name}-$($version[0]).$($version[1]).$($version[2])-win64.7z $folder\* -aoa
 
 
 
