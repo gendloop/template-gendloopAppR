@@ -5,4 +5,3 @@
 ```powershell
 scoop install gendloopBucket/RepoName
 ```
-
